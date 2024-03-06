@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Set background color */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Style form elements */
+        input[type="text"],
+        input[type="email"],
+        input[type="button"],
+        input[type="submit"] {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        input[type="button"],
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover,
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        #emailResult {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-content">
+        <h1 style="color: #333;">Regex Matcher</h1>
+        
+        <!-- Form for regex matching -->
+        <form id="regexForm" action="/results" method="post">
+            <label for="test_string">Test String:</label><br>
+            <input type="text" id="test_string" name="test_string"><br><br>
+            <label for="regex_pattern">Regex Pattern:</label><br>
+            <input type="text" id="regex_pattern" name="regex_pattern"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Form for email validation -->
+        <h2 style="color: #333;">Email Validation</h2>
+        <form id="emailForm">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            <input type="button" value="Validate Email" onclick="validateEmail()">
+            <span id="emailResult"></span>
+        </form>
+    </div>
+
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            $.post("/validate_email", {email: email}, function(data) {
+                if (data.is_valid) {
+                    document.getElementById("emailResult").innerText = "Valid email address.";
+                } else {
+                    document.getElementById("emailResult").innerText = "Invalid email address.";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Regex Matcher</h1>
+    
+    
+    <form id="regexForm" action="/results" method="post">
+        <label for="test_string">Test String:</label><br>
+        <input type="text" id="test_string" name="test_string"><br><br>
+        <label for="regex_pattern">Regex Pattern:</label><br>
+        <input type="text" id="regex_pattern" name="regex_pattern"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form for email validation 
+    <h2>Email Validation</h2>
+    <form id="emailForm">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="button" value="Validate Email" onclick="validateEmail()">
+        <span id="emailResult"></span>
+    </form>
+
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            $.post("/validate_email", {email: email}, function(data) {
+                if (data.is_valid) {
+                    document.getElementById("emailResult").innerText = "Valid email address.";
+                } else {
+                    document.getElementById("emailResult").innerText = "Invalid email address.";
+                }
+            });
+        }
+    </script>
+</body>
+</html>   
+    
+-->
+
+
+
+
+<!-- #for upto 7th step: -->
+ 
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+</head>
+<body>
+    <h1>Regex Matcher</h1>
+    <form action="/results" method="post">
+        <label for="test_string">Test String:</label><br>
+        <input type="text" id="test_string" name="test_string"><br><br>
+        <label for="regex_pattern">Regex Pattern:</label><br>
+        <input type="text" id="regex_pattern" name="regex_pattern"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+-->
